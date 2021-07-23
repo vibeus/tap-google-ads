@@ -1,0 +1,592 @@
+{
+  "type": "object",
+  "properties": {
+    "accessible_bidding_strategy": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ad_serving_optimization_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "advertising_channel_sub_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "advertising_channel_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "app_campaign_setting": {
+      "type": "object",
+      "properties": {
+        "app_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "app_store": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bidding_strategy_goal_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "base_campaign": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bidding_strategy": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bidding_strategy_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "campaign_budget": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "commission": {
+      "type": "object",
+      "properties": {
+        "commission_rate_micros": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+    "dynamic_search_ads_setting": {
+      "type": "object",
+      "properties": {
+        "domain_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "feeds": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language_code": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "use_supplied_urls_only": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "end_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "excluded_parent_asset_field_types": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "experiment_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "final_url_suffix": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "frequency_caps": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "object",
+            "properties": {
+              "level": {
+                "type": "string"
+              },
+              "event_type": {
+                "type": "string"
+              },
+              "time_unit": {
+                "type": "string"
+              },
+              "time_length": {
+                "type": "integer"
+              }
+            }
+          },
+          "cap": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "geo_target_type_setting": {
+      "type": "object",
+      "properties": {
+        "negative_geo_target_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "positive_geo_target_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "hotel_setting": {
+      "type": "object",
+      "properties": {
+        "hotel_center_id": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+    "id": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "labels": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      }
+    },
+    "local_campaign_setting": {
+      "type": "object",
+      "properties": {
+        "location_source_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "manual_cpc": {
+      "type": "object",
+      "properties": {
+        "enhanced_cpc_enabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "manual_cpm": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "manual_cpv": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "maximize_conversion_value": {
+      "type": "object",
+      "properties": {
+        "target_roas": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "maximize_conversions": {
+      "type": "object",
+      "properties": {
+        "target_cpa": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+    "name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "network_settings": {
+      "type": "object",
+      "properties": {
+        "target_content_network": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "target_google_search": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "target_partner_search_network": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "target_search_network": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "optimization_goal_setting": {
+      "type": "object",
+      "properties": {
+        "optimization_goal_types": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "optimization_score": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "payment_mode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "percent_cpc": {
+      "type": "object",
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "enhanced_cpc_enabled": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "real_time_bidding_setting": {
+      "type": "object",
+      "properties": {
+        "opt_in": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "resource_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "selective_optimization": {
+      "type": "object",
+      "properties": {
+        "conversion_actions": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "serving_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "shopping_setting": {
+      "type": "object",
+      "properties": {
+        "campaign_priority": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "enable_local": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "merchant_id": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "sales_country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "start_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target_cpa": {
+      "type": "object",
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "cpc_bid_floor_micros": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "target_cpa_micros": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+    "target_cpm": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "target_impression_share": {
+      "type": "object",
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "location": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "location_fraction_micros": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+    "target_roas": {
+      "type": "object",
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "cpc_bid_floor_micros": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "target_roas": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "target_spend": {
+      "type": "object",
+      "properties": {
+        "cpc_bid_ceiling_micros": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "target_spend_micros": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    },
+    "targeting_setting": {
+      "type": "object",
+      "properties": {
+        "target_restrictions": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "targeting_dimension": {
+                "type": "string"
+              },
+              "bid_only": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
+    "tracking_setting": {
+      "type": "object",
+      "properties": {
+        "tracking_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "tracking_url_template": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url_custom_parameters": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      }
+    },
+    "vanity_pharma": {
+      "type": "object",
+      "properties": {
+        "vanity_pharma_display_url_mode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "vanity_pharma_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "video_brand_safety_suitability": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "customer_id": {
+      "type": "number"
+    }
+  }
+}

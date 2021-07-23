@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "properties": {
+    "campaign_id": {
+      "type": "integer"
+    },
+    "ad_network_type": {
+      "type": ["string", "null"]
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "device": {
+      "type": ["string", "null"]
+    },
+    "all_conversions": {
+      "type": ["integer", "null"]
+    },
+    "clicks": {
+      "type": ["integer", "null"]
+    },
+    "conversions": {
+      "type": ["integer", "null"]
+    },
+    "cost_micros": {
+      "type": ["integer", "null"]
+    },
+    "cross_device_conversions": {
+      "type": ["integer", "null"]
+    },
+    "engagements": {
+      "type": ["integer", "null"]
+    },
+    "impressions": {
+      "type": ["integer", "null"]
+    },
+    "interactions": {
+      "type": ["integer", "null"]
+    }
+  }
+}
