@@ -5,5 +5,5 @@
   "refresh_token": "env[GOOGLE_OAUTH_REFRESH_TOKEN]",
   "login_customer_id": "1234567890",
   "customer_ids": ["1234567890"],
-  "start_date": "2021-07-01T00:00:00Z"
+  "start_date": "2021-07-01"
 }
