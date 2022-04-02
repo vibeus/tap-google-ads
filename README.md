@@ -4,7 +4,7 @@ This is a [Singer][1] tap that produces JSON-formatted data following the [Singe
 
 This tap:
 
-- Pulls raw data from [Google Ads API v8][3]
+- Pulls raw data from [Google Ads API v10][3]
 - Extracts the following resources:
   - [Campaign][4] with selected segments and metrics that we care about
 - Outputs the schema for each resource
@@ -86,7 +86,7 @@ Copyright &copy; 2021 Vibe Inc
 
 [1]: https://singer.io
 [2]: https://github.com/singer-io/getting-started/blob/master/SPEC.md
-[3]: https://developers.google.com/google-ads/api/reference/rpc/v8/overview
+[3]: https://developers.google.com/google-ads/api/reference/rpc/v10/overview
 [4]: https://developers.google.com/google-ads/api/fields/v8/campaign
 [5]: https://github.com/singer-io/getting-started/blob/master/docs/RUNNING_AND_DEVELOPING.md#running-a-singer-tap-with-a-singer-target
 [6]: https://github.com/vibeus/tap-google-ads/blob/master/sample_config.json

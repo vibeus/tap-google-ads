@@ -7,7 +7,7 @@ from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.errors import GoogleAdsException
 
 LOGGER = singer.get_logger()
-CLIENT_CONFIG_KEYS = ["developer_token", "client_id", "client_secret", "refresh_token", "login_customer_id"]
+CLIENT_CONFIG_KEYS = ["developer_token", "client_id", "client_secret", "refresh_token", "login_customer_id", "use_proto_plus"]
 DEFAULT_BACKOFF_SECONDS = 60
 
 
@@ -53,7 +53,7 @@ class CampaignMetrics:
         self.__state = state.copy()
 
         client_config = {key: value for key, value in config.items() if key in CLIENT_CONFIG_KEYS}
-        client = GoogleAdsClient.load_from_dict(config_dict=client_config, version="v8")
+        client = GoogleAdsClient.load_from_dict(config_dict=client_config, version="v10")
         service = client.get_service("GoogleAdsService")
 
         for customer_id in config["customer_ids"]:

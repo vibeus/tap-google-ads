@@ -7,7 +7,7 @@ from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.errors import GoogleAdsException
 
 LOGGER = singer.get_logger()
-CLIENT_CONFIG_KEYS = ["developer_token", "client_id", "client_secret", "refresh_token", "login_customer_id"]
+CLIENT_CONFIG_KEYS = ["developer_token", "client_id", "client_secret", "refresh_token", "login_customer_id", "use_proto_plus"]
 DEFAULT_BACKOFF_SECONDS = 60
 
 
@@ -48,7 +48,7 @@ class Campaigns:
 
     def get_tap_data(self, config, state):
         client_config = {key: value for key, value in config.items() if key in CLIENT_CONFIG_KEYS}
-        client = GoogleAdsClient.load_from_dict(config_dict=client_config, version="v8")
+        client = GoogleAdsClient.load_from_dict(config_dict=client_config, version="v10")
         service = client.get_service("GoogleAdsService")
 
         for customer_id in config["customer_ids"]:
@@ -156,12 +156,12 @@ class Campaigns:
                     },
                     "dynamic_search_ads_setting": {
                         "domain_name": c.dynamic_search_ads_setting.domain_name,
-                        "feeds": c.dynamic_search_ads_setting.feeds,
+                        "feeds": list(c.dynamic_search_ads_setting.feeds),
                         "language_code": c.dynamic_search_ads_setting.language_code,
                         "use_supplied_urls_only": c.dynamic_search_ads_setting.use_supplied_urls_only,
                     },
                     "end_date": c.end_date,
-                    "excluded_parent_asset_field_types": c.excluded_parent_asset_field_types,
+                    "excluded_parent_asset_field_types": list(c.excluded_parent_asset_field_types),
                     "experiment_type": c.experiment_type,
                     "final_url_suffix": c.final_url_suffix,
                     "frequency_caps": [
@@ -182,11 +182,11 @@ class Campaigns:
                     },
                     "hotel_setting": {"hotel_center_id": c.hotel_setting.hotel_center_id},
                     "id": c.id,
-                    "labels": c.labels,
+                    "labels": list(c.labels),
                     "local_campaign_setting": {"location_source_type": c.local_campaign_setting.location_source_type},
                     "manual_cpc": {"enhanced_cpc_enabled": c.manual_cpc.enhanced_cpc_enabled},
-                    "manual_cpm": c.manual_cpm,
-                    "manual_cpv": c.manual_cpv,
+                    "manual_cpm": str(c.manual_cpm),
+                    "manual_cpv": str(c.manual_cpv),
                     "maximize_conversion_value": {"target_roas": c.maximize_conversion_value.target_roas},
                     "maximize_conversions": {"target_cpa": c.maximize_conversions.target_cpa},
                     "name": c.name,
@@ -197,7 +197,7 @@ class Campaigns:
                         "target_search_network": c.network_settings.target_search_network,
                     },
                     "optimization_goal_setting": {
-                        "optimization_goal_types": c.optimization_goal_setting.optimization_goal_types
+                        "optimization_goal_types": list(c.optimization_goal_setting.optimization_goal_types)
                     },
                     "optimization_score": c.optimization_score,
                     "payment_mode": c.payment_mode,
@@ -207,7 +207,7 @@ class Campaigns:
                     },
                     "real_time_bidding_setting": {"opt_in": c.real_time_bidding_setting.opt_in},
                     "resource_name": c.resource_name,
-                    "selective_optimization": {"conversion_actions": c.selective_optimization.conversion_actions},
+                    "selective_optimization": {"conversion_actions": list(c.selective_optimization.conversion_actions)},
                     "serving_status": c.serving_status,
                     "shopping_setting": {
                         "campaign_priority": c.shopping_setting.campaign_priority,
@@ -222,7 +222,7 @@ class Campaigns:
                         "cpc_bid_floor_micros": c.target_cpa.cpc_bid_floor_micros,
                         "target_cpa_micros": c.target_cpa.target_cpa_micros,
                     },
-                    "target_cpm": c.target_cpm,
+                    "target_cpm": str(c.target_cpm),
                     "target_impression_share": {
                         "cpc_bid_ceiling_micros": c.target_impression_share.cpc_bid_ceiling_micros,
                         "location": c.target_impression_share.location,
@@ -253,3 +253,4 @@ class Campaigns:
                     "video_brand_safety_suitability": c.video_brand_safety_suitability,
                     "customer_id": row.customer.id,
                 }
+                
