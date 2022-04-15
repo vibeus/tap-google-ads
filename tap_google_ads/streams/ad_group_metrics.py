@@ -9,14 +9,14 @@ from .base import Incremental
 
 LOGGER = singer.get_logger()
 
-class CampaignMetrics(Incremental):
+class AdGroupMetrics(Incremental):
     @property
     def name(self):
-        return "campaign_metrics"
+        return "ad_group_metrics"
 
     @property
     def key_properties(self):
-        return ["campaign_id", "ad_network_type", "date", "device"]
+        return ["ad_group_id", "campaign_id", "ad_network_type", "date", "device"]
 
     @property
     def replication_key(self):
@@ -34,7 +34,8 @@ class CampaignMetrics(Incremental):
 
         query = f"""
             SELECT
-                campaign.id,
+                ad_group.id,
+                ad_group.campaign,
                 segments.ad_network_type,
                 segments.date,
                 segments.device,
@@ -46,7 +47,7 @@ class CampaignMetrics(Incremental):
                 metrics.engagements,
                 metrics.impressions,
                 metrics.interactions
-            FROM campaign
+            FROM ad_group
             WHERE segments.date >= '{after}' AND segments.date <= '{today}'
             """
         resp = service.search_stream(customer_id=customer_id, query=query)
@@ -54,7 +55,7 @@ class CampaignMetrics(Incremental):
         for batch in resp:
             for row in batch.results:
                 s = row.segments
-                c = row.campaign
+                ag = row.ad_group
                 m = row.metrics
 
                 rep_key = s.date
@@ -62,7 +63,8 @@ class CampaignMetrics(Incremental):
                     max_rep_key = rep_key
 
                 yield {
-                    "campaign_id": c.id,
+                    "ad_group_id": ag.id,
+                    "campaign_id": int(ag.campaign.split("/campaigns/")[1]),
                     "ad_network_type": s.ad_network_type,
                     "date": s.date,
                     "device": s.device,

@@ -5,17 +5,11 @@ from singer import metadata
 from datetime import datetime, timedelta
 from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.errors import GoogleAdsException
+from .base import Base
 
 LOGGER = singer.get_logger()
-CLIENT_CONFIG_KEYS = ["developer_token", "client_id", "client_secret", "refresh_token", "login_customer_id", "use_proto_plus"]
-DEFAULT_BACKOFF_SECONDS = 60
 
-
-class Campaigns:
-    def __init__(self):
-        self.__start_date = ""
-        self.__state = {}
-
+class Campaigns(Base):
     @property
     def name(self):
         return "campaigns"
@@ -32,29 +26,7 @@ class Campaigns:
     def replication_method(self):
         return "FULL_TABLE"
 
-    @property
-    def state(self):
-        return self.__state
-
-    def get_metadata(self, schema):
-        mdata = metadata.get_standard_metadata(
-            schema=schema,
-            key_properties=self.key_properties,
-            valid_replication_keys=[],
-            replication_method=self.replication_method,
-        )
-
-        return mdata
-
-    def get_tap_data(self, config, state):
-        client_config = {key: value for key, value in config.items() if key in CLIENT_CONFIG_KEYS}
-        client = GoogleAdsClient.load_from_dict(config_dict=client_config, version="v10")
-        service = client.get_service("GoogleAdsService")
-
-        for customer_id in config["customer_ids"]:
-            yield from self.get_campaigns(service, customer_id)
-
-    def get_campaigns(self, service, customer_id):
+    def gen_records(self, service, customer_id):
         query = """
             SELECT
                 campaign.accessible_bidding_strategy,
