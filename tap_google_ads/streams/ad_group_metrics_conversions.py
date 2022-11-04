@@ -16,7 +16,7 @@ class AdGroupMetricsConversions(Incremental):
 
     @property
     def key_properties(self):
-        return ["ad_group_id", "campaign_id", "ad_network_type", "conversion_action", "conversion_action_name"]
+        return ["ad_group_id", "campaign_id", "ad_network_type", "device", "conversion_action", "conversion_action_name"]
 
     @property
     def replication_key(self):
@@ -74,7 +74,6 @@ class AdGroupMetricsConversions(Incremental):
                     "conversions": m.conversions,
                     "conversions_value": m.conversions_value,
                     "cross_device_conversions": m.cross_device_conversions,
-                    "conversions_value_per_cost": m.conversions_value_per_cost
                 }
 
         self._state[customer_id] = max_rep_key
