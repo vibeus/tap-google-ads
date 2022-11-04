@@ -16,7 +16,7 @@ class AdGroupMetricsConversions(Incremental):
 
     @property
     def key_properties(self):
-        return ["ad_group_id", "campaign_id", "ad_network_type", "device", "conversion_action", "conversion_action_name"]
+        return ["ad_group_id", "campaign_id", "ad_network_type", "date", "device", "conversion_action", "conversion_action_name"]
 
     @property
     def replication_key(self):
