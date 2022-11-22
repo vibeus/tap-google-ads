@@ -3,9 +3,11 @@ import json
 import time
 from singer import metadata
 from datetime import datetime, timedelta
+from dateutil.parser import parse
 from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.errors import GoogleAdsException
 from .base import Incremental
+LOOKBACK_WINDOW = 30
 
 LOGGER = singer.get_logger()
 
@@ -30,6 +32,7 @@ class AdGroupMetricsConversions(Incremental):
         today = datetime.utcnow().date().isoformat()
         state_date = self._state.get(customer_id, self._start_date)
         after = max(self._start_date, state_date)
+        start = (parse(after) - timedelta(days=LOOKBACK_WINDOW)).strftime("%Y-%m-%d")
         max_rep_key = after
 
         query = f"""
@@ -47,7 +50,7 @@ class AdGroupMetricsConversions(Incremental):
                 metrics.conversions_value,
                 metrics.cross_device_conversions
             FROM ad_group
-            WHERE segments.date >= '{after}' AND segments.date <= '{today}'
+            WHERE segments.date >= '{start}' AND segments.date <= '{today}'
             """
         resp = service.search_stream(customer_id=customer_id, query=query)
 
