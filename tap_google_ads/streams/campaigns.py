@@ -60,7 +60,6 @@ class Campaigns(Base):
                 campaign.manual_cpm,
                 campaign.manual_cpv,
                 campaign.maximize_conversion_value.target_roas,
-                campaign.maximize_conversions.target_cpa,
                 campaign.name,
                 campaign.network_settings.target_content_network,
                 campaign.network_settings.target_google_search,
@@ -84,7 +83,6 @@ class Campaigns(Base):
                 campaign.target_cpa.cpc_bid_ceiling_micros,
                 campaign.target_cpa.cpc_bid_floor_micros,
                 campaign.target_cpa.target_cpa_micros,
-                campaign.target_cpm,
                 campaign.target_impression_share.cpc_bid_ceiling_micros,
                 campaign.target_impression_share.location,
                 campaign.target_impression_share.location_fraction_micros,
@@ -160,7 +158,7 @@ class Campaigns(Base):
                     "manual_cpm": str(c.manual_cpm),
                     "manual_cpv": str(c.manual_cpv),
                     "maximize_conversion_value": {"target_roas": c.maximize_conversion_value.target_roas},
-                    "maximize_conversions": {"target_cpa": c.maximize_conversions.target_cpa},
+                    "maximize_conversions": None,
                     "name": c.name,
                     "network_settings": {
                         "target_content_network": c.network_settings.target_content_network,
@@ -194,7 +192,7 @@ class Campaigns(Base):
                         "cpc_bid_floor_micros": c.target_cpa.cpc_bid_floor_micros,
                         "target_cpa_micros": c.target_cpa.target_cpa_micros,
                     },
-                    "target_cpm": str(c.target_cpm),
+                    "target_cpm": None,
                     "target_impression_share": {
                         "cpc_bid_ceiling_micros": c.target_impression_share.cpc_bid_ceiling_micros,
                         "location": c.target_impression_share.location,
@@ -225,4 +223,3 @@ class Campaigns(Base):
                     "video_brand_safety_suitability": c.video_brand_safety_suitability,
                     "customer_id": row.customer.id,
                 }
-                

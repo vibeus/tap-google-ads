@@ -43,7 +43,6 @@ class AdGroups(Base):
                 ad_group.effective_target_roas,
                 ad_group.effective_target_roas_source,
                 ad_group.excluded_parent_asset_field_types,
-                ad_group.explorer_auto_optimizer_setting.opt_in,
                 ad_group.final_url_suffix,
                 ad_group.id,
                 ad_group.labels,
@@ -83,7 +82,7 @@ class AdGroups(Base):
                     "effective_target_roas": ag.effective_target_roas,
                     "effective_target_roas_source": ag.effective_target_roas_source,
                     "excluded_parent_asset_field_types": ag.excluded_parent_asset_field_types,
-                    "explorer_auto_optimizer_setting": ag.explorer_auto_optimizer_setting.opt_in,
+                    "explorer_auto_optimizer_setting": None,
                     "final_url_suffix": ag.final_url_suffix,
                     "id": ag.id,
                     "labels": list(ag.labels),
@@ -100,4 +99,3 @@ class AdGroups(Base):
                     "url_custom_parameters": list(ag.url_custom_parameters),
                     "customer_id": row.customer.id,
                 }
-                
