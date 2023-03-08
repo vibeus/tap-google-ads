@@ -158,7 +158,7 @@ class Campaigns(Base):
                     "manual_cpm": str(c.manual_cpm),
                     "manual_cpv": str(c.manual_cpv),
                     "maximize_conversion_value": {"target_roas": c.maximize_conversion_value.target_roas},
-                    "maximize_conversions": None,
+                    "maximize_conversions": {"target_cpa": None},
                     "name": c.name,
                     "network_settings": {
                         "target_content_network": c.network_settings.target_content_network,
