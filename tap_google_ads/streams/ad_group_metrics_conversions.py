@@ -8,16 +8,17 @@ from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.errors import GoogleAdsException
 from .base import Incremental
 LOOKBACK_WINDOW = 30
+
 LOGGER = singer.get_logger()
 
-class AdGroupMetrics(Incremental):
+class AdGroupMetricsConversions(Incremental):
     @property
     def name(self):
-        return "ad_group_metrics"
+        return "ad_group_metrics_conversions"
 
     @property
     def key_properties(self):
-        return ["ad_group_id", "campaign_id", "ad_network_type", "date", "device"]
+        return ["ad_group_id", "campaign_id", "ad_network_type", "date", "device", "conversion_action", "conversion_action_name"]
 
     @property
     def replication_key(self):
@@ -41,14 +42,13 @@ class AdGroupMetrics(Incremental):
                 segments.ad_network_type,
                 segments.date,
                 segments.device,
+                segments.conversion_action,
+                segments.conversion_action_name,
                 metrics.all_conversions,
-                metrics.clicks,
+                metrics.all_conversions_value,
                 metrics.conversions,
-                metrics.cost_micros,
-                metrics.cross_device_conversions,
-                metrics.engagements,
-                metrics.impressions,
-                metrics.interactions
+                metrics.conversions_value,
+                metrics.cross_device_conversions
             FROM ad_group
             WHERE segments.date >= '{start}' AND segments.date <= '{today}'
             """
@@ -70,14 +70,13 @@ class AdGroupMetrics(Incremental):
                     "ad_network_type": s.ad_network_type,
                     "date": s.date,
                     "device": s.device,
+                    "conversion_action": s.conversion_action,
+                    "conversion_action_name": s.conversion_action_name,
                     "all_conversions": m.all_conversions,
-                    "clicks": m.clicks,
+                    "all_conversions_value": m.all_conversions_value,
                     "conversions": m.conversions,
-                    "cost_micros": m.cost_micros,
+                    "conversions_value": m.conversions_value,
                     "cross_device_conversions": m.cross_device_conversions,
-                    "engagements": m.engagements,
-                    "impressions": m.impressions,
-                    "interactions": m.interactions,
                 }
 
         self._state[customer_id] = max_rep_key

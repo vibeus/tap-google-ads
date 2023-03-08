@@ -8,16 +8,17 @@ from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.errors import GoogleAdsException
 from .base import Incremental
 LOOKBACK_WINDOW = 30
+
 LOGGER = singer.get_logger()
 
-class AdGroupMetrics(Incremental):
+class CampaignMetricsConversions(Incremental):
     @property
     def name(self):
-        return "ad_group_metrics"
+        return "campaign_metrics_conversions"
 
     @property
     def key_properties(self):
-        return ["ad_group_id", "campaign_id", "ad_network_type", "date", "device"]
+        return ["campaign_id", "ad_network_type", "date", "device", "conversion_action", "conversion_action_name"]
 
     @property
     def replication_key(self):
@@ -36,20 +37,18 @@ class AdGroupMetrics(Incremental):
 
         query = f"""
             SELECT
-                ad_group.id,
-                ad_group.campaign,
+                campaign.id,
                 segments.ad_network_type,
                 segments.date,
                 segments.device,
+                segments.conversion_action,
+                segments.conversion_action_name,
                 metrics.all_conversions,
-                metrics.clicks,
+                metrics.all_conversions_value,
                 metrics.conversions,
-                metrics.cost_micros,
-                metrics.cross_device_conversions,
-                metrics.engagements,
-                metrics.impressions,
-                metrics.interactions
-            FROM ad_group
+                metrics.conversions_value,
+                metrics.cross_device_conversions
+            FROM campaign
             WHERE segments.date >= '{start}' AND segments.date <= '{today}'
             """
         resp = service.search_stream(customer_id=customer_id, query=query)
@@ -57,7 +56,7 @@ class AdGroupMetrics(Incremental):
         for batch in resp:
             for row in batch.results:
                 s = row.segments
-                ag = row.ad_group
+                c = row.campaign
                 m = row.metrics
 
                 rep_key = s.date
@@ -65,19 +64,17 @@ class AdGroupMetrics(Incremental):
                     max_rep_key = rep_key
 
                 yield {
-                    "ad_group_id": ag.id,
-                    "campaign_id": int(ag.campaign.split("/campaigns/")[1]),
+                    "campaign_id": c.id,
                     "ad_network_type": s.ad_network_type,
                     "date": s.date,
                     "device": s.device,
+                    "conversion_action": s.conversion_action,
+                    "conversion_action_name": s.conversion_action_name,
                     "all_conversions": m.all_conversions,
-                    "clicks": m.clicks,
+                    "all_conversions_value": m.all_conversions_value,
                     "conversions": m.conversions,
-                    "cost_micros": m.cost_micros,
-                    "cross_device_conversions": m.cross_device_conversions,
-                    "engagements": m.engagements,
-                    "impressions": m.impressions,
-                    "interactions": m.interactions,
+                    "conversions_value": m.conversions_value,
+                    "cross_device_conversions": m.cross_device_conversions
                 }
 
         self._state[customer_id] = max_rep_key
