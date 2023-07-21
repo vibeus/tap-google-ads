@@ -4,7 +4,9 @@ from .campaign_metrics_conversions import CampaignMetricsConversions
 from .ad_groups import AdGroups
 from .ad_group_metrics import AdGroupMetrics
 from .ad_group_metrics_conversions import AdGroupMetricsConversions
-
+from .ads import Ads
+from .ad_metrics import AdMetrics
+from .ad_metrics_conversions import AdMetricsConversions
 
 def create_stream(stream_id):
     if stream_id == "campaigns":
@@ -19,5 +21,11 @@ def create_stream(stream_id):
         return AdGroupMetrics()
     elif stream_id == "ad_group_metrics_conversions":
         return AdGroupMetricsConversions()
+    elif stream_id == "ads":
+        return AdGroups()
+    elif stream_id == "ad_metrics":
+        return AdMetrics()
+    elif stream_id == "ad_metrics_conversions":
+        return AdMetricsConversions()
 
     assert False, f"Unsupported stream: {stream_id}"

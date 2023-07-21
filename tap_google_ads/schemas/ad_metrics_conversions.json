@@ -1,6 +1,9 @@
 {
   "type": "object",
   "properties": {
+    "ad_id": {
+      "type": "integer"
+    },
     "ad_group_id": {
       "type": "integer"
     },

@@ -45,9 +45,13 @@ class AdGroupMetricsConversions(Incremental):
                 segments.conversion_action,
                 segments.conversion_action_name,
                 metrics.all_conversions,
+                metrics.all_conversions_by_conversion_date,
                 metrics.all_conversions_value,
+                metrics.all_conversions_value_by_conversion_date,
                 metrics.conversions,
+                metrics.conversions_by_conversion_date,
                 metrics.conversions_value,
+                metrics.conversions_value_by_conversion_date,
                 metrics.cross_device_conversions
             FROM ad_group
             WHERE segments.date >= '{start}' AND segments.date <= '{today}'
@@ -72,10 +76,15 @@ class AdGroupMetricsConversions(Incremental):
                     "device": s.device,
                     "conversion_action": s.conversion_action,
                     "conversion_action_name": s.conversion_action_name,
+                    "conversion_action_name": s.conversion_action_name,
                     "all_conversions": m.all_conversions,
+                    "all_conversions_by_conversion_date": m.all_conversions_by_conversion_date,
                     "all_conversions_value": m.all_conversions_value,
+                    "all_conversions_value_by_conversion_date": m.all_conversions_value_by_conversion_date,
                     "conversions": m.conversions,
+                    "conversions_by_conversion_date": m.conversions_by_conversion_date,
                     "conversions_value": m.conversions_value,
+                    "conversions_value_by_conversion_date": m.conversions_value_by_conversion_date,
                     "cross_device_conversions": m.cross_device_conversions,
                 }
 

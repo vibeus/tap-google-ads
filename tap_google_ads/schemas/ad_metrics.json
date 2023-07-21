@@ -1,6 +1,9 @@
 {
   "type": "object",
   "properties": {
+    "ad_id": {
+      "type": "integer"
+    },
     "ad_group_id": {
       "type": "integer"
     },
@@ -17,37 +20,28 @@
     "device": {
       "type": ["string", "null"]
     },
-    "conversion_action": {
-      "type": ["string", "null"]
-    },
-    "conversion_action_name": {
-      "type": ["string", "null"]
-    },
     "all_conversions": {
       "type": ["integer", "null"]
     },
-    "all_conversions_by_conversion_date": {
+    "clicks": {
       "type": ["integer", "null"]
-    },
-    "all_conversions_value": {
-      "type": ["number", "null"]
-    },
-    "all_conversions_value_by_conversion_date": {
-      "type": ["number", "null"]
     },
     "conversions": {
       "type": ["integer", "null"]
     },
-    "conversions_by_conversion_date": {
+    "cost_micros": {
       "type": ["integer", "null"]
     },
-    "conversions_value": {
-      "type": ["number", "null"]
-    },
-    "conversions_value_by_conversion_date": {
-      "type": ["number", "null"]
-    },
     "cross_device_conversions": {
+      "type": ["integer", "null"]
+    },
+    "engagements": {
+      "type": ["integer", "null"]
+    },
+    "impressions": {
+      "type": ["integer", "null"]
+    },
+    "interactions": {
       "type": ["integer", "null"]
     }
   }
