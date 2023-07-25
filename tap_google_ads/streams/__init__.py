@@ -22,7 +22,7 @@ def create_stream(stream_id):
     elif stream_id == "ad_group_metrics_conversions":
         return AdGroupMetricsConversions()
     elif stream_id == "ads":
-        return AdGroups()
+        return Ads()
     elif stream_id == "ad_metrics":
         return AdMetrics()
     elif stream_id == "ad_metrics_conversions":

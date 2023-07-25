@@ -47,7 +47,7 @@ class Base:
 
     def get_tap_data(self, config, state):
         client_config = {key: value for key, value in config.items() if key in CLIENT_CONFIG_KEYS}
-        client = GoogleAdsClient.load_from_dict(config_dict=client_config, version="v13")
+        client = GoogleAdsClient.load_from_dict(config_dict=client_config, version="v14")
         service = client.get_service("GoogleAdsService")
 
         for customer_id in config["customer_ids"]:

@@ -338,7 +338,7 @@ class Ads(Base):
                     "text_ad__headline": ada.text_ad.headline,
                     "tracking_url_template": ada.tracking_url_template,
                     "travel_ad": ada.travel_ad,
-                    "type": ada.type,
+                    "type": str(ada.type_).lower(),
                     "url_collections": ada.url_collections,
                     "url_custom_parameters": ada.url_custom_parameters,
                     "video_ad__bumper__action_button_label": ada.video_ad.bumper.action_button_label,
