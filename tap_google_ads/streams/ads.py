@@ -369,3 +369,5 @@ class Ads(Base):
                     "status": ad.status,
                     "customer_id": row.customer.id,
                 }
+
+            time.sleep(5)
