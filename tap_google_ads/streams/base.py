@@ -77,7 +77,7 @@ class Incremental(Base):
       self._state = state.copy()
 
       client_config = {key: value for key, value in config.items() if key in CLIENT_CONFIG_KEYS}
-      client = GoogleAdsClient.load_from_dict(config_dict=client_config, version="v13")
+      client = GoogleAdsClient.load_from_dict(config_dict=client_config, version="v15")
       service = client.get_service("GoogleAdsService")
 
       for customer_id in config["customer_ids"]:
