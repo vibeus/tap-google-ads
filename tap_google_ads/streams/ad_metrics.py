@@ -7,7 +7,7 @@ from dateutil.parser import parse
 from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.errors import GoogleAdsException
 from .base import Incremental
-LOOKBACK_WINDOW = 30
+LOOKBACK_WINDOW = 90
 LOGGER = singer.get_logger()
 
 class AdMetrics(Incremental):
