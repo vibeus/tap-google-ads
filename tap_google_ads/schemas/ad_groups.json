@@ -196,7 +196,7 @@
       }
     },
     "customer_id": {
-      "type": "integer"
+      "type": "number"
     }
   }
 }

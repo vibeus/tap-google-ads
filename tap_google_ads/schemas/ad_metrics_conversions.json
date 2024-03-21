@@ -54,7 +54,7 @@
       "type": ["number", "null"]
     },
     "customer_id": {
-      "type": "integer"
+      "type": "number"
     }
   }
 }
