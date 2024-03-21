@@ -21,19 +21,19 @@
       "type": ["string", "null"]
     },
     "all_conversions": {
-      "type": ["integer", "null"]
+      "type": ["number", "null"]
     },
     "clicks": {
       "type": ["integer", "null"]
     },
     "conversions": {
-      "type": ["integer", "null"]
+      "type": ["number", "null"]
     },
     "cost_micros": {
-      "type": ["integer", "null"]
+      "type": ["number", "null"]
     },
     "cross_device_conversions": {
-      "type": ["integer", "null"]
+      "type": ["number", "null"]
     },
     "engagements": {
       "type": ["integer", "null"]
@@ -43,6 +43,9 @@
     },
     "interactions": {
       "type": ["integer", "null"]
+    },
+    "customer_id": {
+      "type": "integer"
     }
   }
 }

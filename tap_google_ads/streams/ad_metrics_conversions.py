@@ -33,6 +33,8 @@ class AdMetricsConversions(Incremental):
         state_date = self._state.get(customer_id, self._start_date)
         after = max(self._start_date, state_date)
         start = (parse(after) - timedelta(days=LOOKBACK_WINDOW)).strftime("%Y-%m-%d")
+        end_date = config.get("end_date", today)
+        end = min(parse(after) + timedelta(days=365), parse(end_date)).strftime("%Y-%m-%d")
         max_rep_key = after
 
         query = f"""
@@ -55,7 +57,7 @@ class AdMetricsConversions(Incremental):
                 metrics.conversions_value_by_conversion_date,
                 metrics.cross_device_conversions
             FROM ad_group_ad
-            WHERE segments.date >= '{start}' AND segments.date <= '{today}'
+            WHERE segments.date >= '{start}' AND segments.date <= '{end}'
             """
         resp = service.search_stream(customer_id=customer_id, query=query)
 
@@ -89,6 +91,7 @@ class AdMetricsConversions(Incremental):
                     "conversions_value": m.conversions_value,
                     "conversions_value_by_conversion_date": m.conversions_value_by_conversion_date,
                     "cross_device_conversions": m.cross_device_conversions,
+                    "customer_id": customer_id,
                 }
 
         self._state[customer_id] = max_rep_key

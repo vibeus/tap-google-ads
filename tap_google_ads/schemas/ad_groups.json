@@ -8,107 +8,107 @@
       ]
     },
     "use_audience_grouped": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "base_ad_group": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "campaign": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "campaign_id": {
-        "type": [
-          "integer",
-          "null"
-        ]
-      },
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
     "cpc_bid_micros": {
-        "type": [
-          "integer",
-          "null"
-        ]
-      },
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
     "cpm_bid_micros": {
-        "type": [
-          "integer",
-          "null"
-        ]
-      },
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
     "cpv_bid_micros": {
-        "type": [
-          "integer",
-          "null"
-        ]
-      },
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
     "display_custom_bid_dimension": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "effective_cpc_bid_micros": {
-        "type": [
-          "integer",
-          "null"
-        ]
-      },
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
     "effective_target_cpa_micros": {
-        "type": [
-          "integer",
-          "null"
-        ]
-      },
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
     "effective_target_cpa_source": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "effective_target_roas": {
-        "type": [
-          "number",
-          "null"
-        ]
-      },
+      "type": [
+        "number",
+        "null"
+      ]
+    },
     "effective_target_roas_source": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "excluded_parent_asset_field_types": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "explorer_auto_optimizer_setting": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "final_url_suffix": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "id": {
-        "type": [
-          "integer",
-          "null"
-        ]
-      },
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
     "labels": {
       "type": [
         "array",
@@ -119,80 +119,84 @@
       }
     },
     "name": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "percent_cpc_bid_micros": {
-        "type": [
-          "integer",
-          "null"
-        ]
-      },
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
     "resource_name": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "status": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "target_cpa_micros": {
-        "type": [
-          "integer",
-          "null"
-        ]
-      },
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
     "target_cpm_micros": {
-        "type": [
-          "integer",
-          "null"
-        ]
-      },
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
     "target_roas": {
-        "type": [
-          "number",
-          "null"
-        ]
-      },
+      "type": [
+        "number",
+        "null"
+      ]
+    },
     "target_restrictions": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "tracking_url_template": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
-      "ad_group_type": {
-        "type": [
-          "string",
-          "null"
-        ]
-      },
-      "url_custom_parameters": {
-        "type": [
-          "array",
-          "null"
-        ],
-        "items": {
-          "type": "object",
-          "properties": {
-            "key": { "type": "string" },
-            "value": { "type": "string" }
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ad_group_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url_custom_parameters": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
           }
         }
-      },
+      }
+    },
     "customer_id": {
-      "type": "number"
+      "type": "integer"
     }
   }
 }

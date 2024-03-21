@@ -33,7 +33,11 @@ class CampaignMetrics(Incremental):
         state_date = self._state.get(customer_id, self._start_date)
         after = max(self._start_date, state_date)
         start = (parse(after) - timedelta(days=LOOKBACK_WINDOW)).strftime("%Y-%m-%d")
+        end_date = config.get("end_date", today)
+        end = min(parse(after) + timedelta(days=365), parse(end_date)).strftime("%Y-%m-%d")
         max_rep_key = after
+
+        LOGGER.info(f"{self.name}:{start} to {end}")
 
         query = f"""
             SELECT
@@ -50,7 +54,7 @@ class CampaignMetrics(Incremental):
                 metrics.impressions,
                 metrics.interactions
             FROM campaign
-            WHERE segments.date >= '{start}' AND segments.date <= '{today}'
+            WHERE segments.date >= '{start}' AND segments.date <= '{end}'
             """
         resp = service.search_stream(customer_id=customer_id, query=query)
 
@@ -77,6 +81,7 @@ class CampaignMetrics(Incremental):
                     "engagements": m.engagements,
                     "impressions": m.impressions,
                     "interactions": m.interactions,
+                    "customer_id": customer_id,
                 }
 
         self._state[customer_id] = max_rep_key
