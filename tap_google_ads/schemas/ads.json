@@ -601,6 +601,12 @@
         "null"
       ]
     },
+    "ad_resource_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "responsive_display_ad__accent_color": {
       "type": [
         "string",

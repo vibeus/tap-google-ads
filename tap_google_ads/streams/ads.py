@@ -204,8 +204,9 @@ class Ads(Base):
                 ada = row.ad_group_ad.ad
                 yield {
                     "name": ada.name,
-                    "resource_name": ada.resource_name,
+                    "resource_name": ad.resource_name,
                     "id": ada.id,
+                    "ad_resource_name": ada.resource_name,
                     "ad_group": ad.ad_group,
                     "campaign": row.ad_group.campaign,
                     "ad_group_id": int(ad.ad_group.split("/adGroups/")[1]),
