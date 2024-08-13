@@ -15,7 +15,7 @@ setup(
     classifiers=["Programming Language :: Python :: 3 :: Only"],
     py_modules=["tap_google_ads"],
     install_requires=[
-        "google-ads",
+        "google-ads==23.1.0",
         "requests",
         "singer-python",
     ],
