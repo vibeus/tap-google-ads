@@ -187,91 +187,91 @@
         "null"
       ]
     },
-    "discovery_carousel_ad__business_name": {
+    "demand_gen_carousel_ad__business_name": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_carousel_ad__call_to_action_text": {
+    "demand_gen_carousel_ad__call_to_action_text": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_carousel_ad__carousel_cards": {
+    "demand_gen_carousel_ad__carousel_cards": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_carousel_ad__description": {
+    "demand_gen_carousel_ad__description": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_carousel_ad__headline": {
+    "demand_gen_carousel_ad__headline": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_carousel_ad__logo_image": {
+    "demand_gen_carousel_ad__logo_image": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_multi_asset_ad__business_name": {
+    "demand_gen_multi_asset_ad__business_name": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_multi_asset_ad__call_to_action_text": {
+    "demand_gen_multi_asset_ad__call_to_action_text": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_multi_asset_ad__descriptions": {
+    "demand_gen_multi_asset_ad__descriptions": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_multi_asset_ad__headlines": {
+    "demand_gen_multi_asset_ad__headlines": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_multi_asset_ad__lead_form_only": {
+    "demand_gen_multi_asset_ad__lead_form_only": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_multi_asset_ad__logo_images": {
+    "demand_gen_multi_asset_ad__logo_images": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_multi_asset_ad__marketing_images": {
+    "demand_gen_multi_asset_ad__marketing_images": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_multi_asset_ad__portrait_marketing_images": {
+    "demand_gen_multi_asset_ad__portrait_marketing_images": {
       "type": [
         "string",
         "null"
       ]
     },
-    "discovery_multi_asset_ad__square_marketing_images": {
+    "demand_gen_multi_asset_ad__square_marketing_images": {
       "type": [
         "string",
         "null"
