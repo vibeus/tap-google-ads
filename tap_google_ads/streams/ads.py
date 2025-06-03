@@ -371,4 +371,4 @@ class Ads(Base):
                     "customer_id": row.customer.id,
                 }
 
-            time.sleep(5)
+            time.sleep(1)
