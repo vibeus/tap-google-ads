@@ -42,7 +42,6 @@ class Campaigns(Base):
                 campaign.campaign_budget,
                 campaign.commission.commission_rate_micros,
                 campaign.dynamic_search_ads_setting.domain_name,
-                campaign.dynamic_search_ads_setting.feeds,
                 campaign.dynamic_search_ads_setting.language_code,
                 campaign.dynamic_search_ads_setting.use_supplied_urls_only,
                 campaign.end_date,
@@ -125,7 +124,7 @@ class Campaigns(Base):
                     },
                     "dynamic_search_ads_setting": {
                         "domain_name": c.dynamic_search_ads_setting.domain_name,
-                        "feeds": list(c.dynamic_search_ads_setting.feeds),
+                        "feeds": list(),
                         "language_code": c.dynamic_search_ads_setting.language_code,
                         "use_supplied_urls_only": c.dynamic_search_ads_setting.use_supplied_urls_only,
                     },
