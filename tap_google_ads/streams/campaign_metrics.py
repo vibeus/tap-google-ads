@@ -2,7 +2,7 @@ import singer
 import json
 import time
 from singer import metadata
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from dateutil.parser import parse
 from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.errors import GoogleAdsException
@@ -29,7 +29,7 @@ class CampaignMetrics(Incremental):
         return "INCREMENTAL"
 
     def gen_records(self, config, service, customer_id):
-        today = datetime.utcnow().date().isoformat()
+        today = datetime.now(timezone.utc).date().isoformat()
         state_date = self._state.get(customer_id, self._start_date)
         after = max(self._start_date, state_date)
         start = (parse(after) - timedelta(days=LOOKBACK_WINDOW)).strftime("%Y-%m-%d")

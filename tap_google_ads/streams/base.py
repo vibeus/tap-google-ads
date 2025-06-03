@@ -2,7 +2,7 @@ import singer
 import json
 import time
 from singer import metadata
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from google.ads.googleads.client import GoogleAdsClient
 from google.ads.googleads.errors import GoogleAdsException
 
@@ -71,7 +71,7 @@ class Incremental(Base):
         return "INCREMENTAL"
 
     def get_tap_data(self, config, state):
-      today = datetime.utcnow().date().isoformat()
+      today = datetime.now(timezone.utc).date().isoformat()
       self._start_date = config.get("start_date", today)
       self._backoff_seconds = config.get("rate_limit_backoff_seconds", DEFAULT_BACKOFF_SECONDS)
       self._state = state.copy()
