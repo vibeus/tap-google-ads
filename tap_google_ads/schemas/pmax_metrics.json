@@ -1,0 +1,57 @@
+{
+  "type": "object",
+  "properties": {
+    "campaign_id": {
+      "type": "integer"
+    },
+    "asset_id": {
+      "type": ["integer", "null"]
+    },
+    "asset_name": {
+      "type": ["string", "null"]
+    },
+    "asset_type": {
+      "type": ["string", "null"]
+    },
+    "advertising_channel_type": {
+      "type": ["string", "null"]
+    },
+    "ad_network_type": {
+      "type": ["string", "null"]
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "device": {
+      "type": ["string", "null"]
+    },
+    "all_conversions": {
+      "type": ["number", "null"]
+    },
+    "clicks": {
+      "type": ["integer", "null"]
+    },
+    "conversions": {
+      "type": ["number", "null"]
+    },
+    "cost_micros": {
+      "type": ["number", "null"]
+    },
+    "cross_device_conversions": {
+      "type": ["number", "null"]
+    },
+    "engagements": {
+      "type": ["number", "null"]
+    },
+    "impressions": {
+      "type": ["integer", "null"]
+    },
+    "interactions": {
+      "type": ["integer", "null"]
+    },
+    "customer_id": {
+      "type": "number"
+    }
+  }
+}
