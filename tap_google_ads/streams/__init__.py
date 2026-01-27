@@ -7,6 +7,8 @@ from .ad_group_metrics_conversions import AdGroupMetricsConversions
 from .ads import Ads
 from .ad_metrics import AdMetrics
 from .ad_metrics_conversions import AdMetricsConversions
+from .pmax_metrics import PmaxMetrics
+from .pmax_metrics_conversions import PmaxMetricsConversions
 
 def create_stream(stream_id):
     if stream_id == "campaigns":
@@ -27,5 +29,9 @@ def create_stream(stream_id):
         return AdMetrics()
     elif stream_id == "ad_metrics_conversions":
         return AdMetricsConversions()
+    elif stream_id == "pmax_metrics":
+        return PmaxMetrics()
+    elif stream_id == "pmax_metrics_conversions":
+        return PmaxMetricsConversions()
 
     assert False, f"Unsupported stream: {stream_id}"
