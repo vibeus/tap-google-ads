@@ -6,7 +6,7 @@ with open("README.md") as f:
 
 setup(
     name="tap-google-ads",
-    version="0.2.2",
+    version="0.3.0",
     description="Singer.io tap for extracting data from Google Ads API.",
     long_description=long_description,
     long_description_content_type="text/markdown",
