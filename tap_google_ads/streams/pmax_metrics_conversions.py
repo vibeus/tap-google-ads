@@ -13,7 +13,7 @@ class PmaxMetricsConversions(Incremental):
 
     @property
     def key_properties(self):
-        return ["campaign_id", "asset_id", "ad_network_type", "date", "device", "conversion_action", "conversion_action_name"]
+        return ["campaign_id", "asset_group_id", "ad_network_type", "date", "device", "conversion_action", "conversion_action_name"]
 
     @property
     def replication_key(self):
@@ -38,9 +38,11 @@ class PmaxMetricsConversions(Incremental):
             SELECT
                 campaign.id,
                 campaign.advertising_channel_type,
-                asset.id,
-                asset.name,
-                asset.type,
+                campaign.name,
+                asset_group.id,
+                asset_group.name,
+                asset_group.primary_status,
+                asset_group.status,
                 segments.ad_network_type,
                 segments.date,
                 segments.device,
@@ -48,17 +50,21 @@ class PmaxMetricsConversions(Incremental):
                 segments.conversion_action_name,
                 metrics.all_conversions,
                 metrics.all_conversions_value,
+                metrics.all_conversions_by_conversion_date,
+                metrics.all_conversions_value_by_conversion_date,
                 metrics.conversions,
                 metrics.conversions_value,
+                metrics.conversions_by_conversion_date,
+                metrics.conversions_value_by_conversion_date,
                 metrics.cross_device_conversions
-            FROM campaign_asset
+            FROM asset_group
             WHERE campaign.advertising_channel_type = PERFORMANCE_MAX AND segments.date >= '{start}' AND segments.date <= '{end}'
             """
         resp = service.search_stream(customer_id=customer_id, query=query)
 
         for batch in resp:
             for row in batch.results:
-                a = row.asset
+                a = row.asset_group
                 s = row.segments
                 c = row.campaign
                 m = row.metrics
@@ -69,19 +75,25 @@ class PmaxMetricsConversions(Incremental):
 
                 yield {
                     "campaign_id": c.id,
-                    "asset_id": a.id,
-                    "asset_name": a.name,
-                    "asset_type": a.type_,
+                    "campagin_name": c.name,
                     "advertising_channel_type": c.advertising_channel_type,
+                    "asset_group_id": a.id,
+                    "asset_group_name": a.name,
+                    "asset_group_status": a.status,
+                    "asset_group_primary_status": a.primary_status,
                     "ad_network_type": s.ad_network_type,
                     "date": s.date,
                     "device": s.device,
                     "conversion_action": s.conversion_action,
                     "conversion_action_name": s.conversion_action_name,
                     "all_conversions": m.all_conversions,
+                    "all_conversions_by_conversion_date": m.all_conversions_by_conversion_date,
                     "all_conversions_value": m.all_conversions_value,
+                    "all_conversions_value_by_conversion_date":m.all_conversions_value_by_conversion_date,
                     "conversions": m.conversions,
+                    "conversions_by_conversion_date": m.conversions_by_conversion_date,
                     "conversions_value": m.conversions_value,
+                    "conversions_value_by_conversion_date": m.conversions_value_by_conversion_date,
                     "cross_device_conversions": m.cross_device_conversions,
                     "customer_id": customer_id,
                 }
