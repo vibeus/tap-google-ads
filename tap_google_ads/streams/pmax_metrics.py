@@ -13,7 +13,7 @@ class PmaxMetrics(Incremental):
 
     @property
     def key_properties(self):
-        return ["campaign_id", "asset_id", "ad_network_type", "date", "device"]
+        return ["campaign_id", "asset_group_id", "ad_network_type", "date", "device"]
 
     @property
     def replication_key(self):
@@ -38,28 +38,26 @@ class PmaxMetrics(Incremental):
             SELECT
                 campaign.id,
                 campaign.advertising_channel_type,
-                asset.id,
-                asset.name,
-                asset.type,
+                campaign.name,
+                asset_group.id,
+                asset_group.name,
+                asset_group.primary_status,
+                asset_group.status,
                 segments.ad_network_type,
                 segments.date,
                 segments.device,
-                metrics.all_conversions,
                 metrics.clicks,
-                metrics.conversions,
                 metrics.cost_micros,
-                metrics.cross_device_conversions,
-                metrics.engagements,
                 metrics.impressions,
                 metrics.interactions
-            FROM campaign_asset
+            FROM asset_group
             WHERE campaign.advertising_channel_type = PERFORMANCE_MAX AND segments.date >= '{start}' AND segments.date <= '{end}'
             """
         resp = service.search_stream(customer_id=customer_id, query=query)
 
         for batch in resp:
             for row in batch.results:
-                a = row.asset
+                a = row.asset_group
                 s = row.segments
                 c = row.campaign
                 m = row.metrics
@@ -70,19 +68,17 @@ class PmaxMetrics(Incremental):
 
                 yield {
                     "campaign_id": c.id,
-                    "asset_id": a.id,
-                    "asset_name": a.name,
-                    "asset_type": a.type_,
+                    "campagin_name": c.name,
                     "advertising_channel_type": c.advertising_channel_type,
+                    "asset_group_id": a.id,
+                    "asset_group_name": a.name,
+                    "asset_group_status": a.status,
+                    "asset_group_primary_status": a.primary_status,
                     "ad_network_type": s.ad_network_type,
                     "date": s.date,
                     "device": s.device,
-                    "all_conversions": m.all_conversions,
                     "clicks": m.clicks,
-                    "conversions": m.conversions,
                     "cost_micros": m.cost_micros,
-                    "cross_device_conversions": m.cross_device_conversions,
-                    "engagements": m.engagements,
                     "impressions": m.impressions,
                     "interactions": m.interactions,
                     "customer_id": customer_id,
