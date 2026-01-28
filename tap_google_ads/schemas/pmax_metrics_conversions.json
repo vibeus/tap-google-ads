@@ -4,7 +4,7 @@
     "campaign_id": {
       "type": "integer"
     },
-    "campagin_name": {
+    "campaign_name": {
       "type": ["string", "null"]
     },
     "advertising_channel_type": {

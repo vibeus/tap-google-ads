@@ -68,7 +68,7 @@ class PmaxMetrics(Incremental):
 
                 yield {
                     "campaign_id": c.id,
-                    "campagin_name": c.name,
+                    "campaign_name": c.name,
                     "advertising_channel_type": c.advertising_channel_type,
                     "asset_group_id": a.id,
                     "asset_group_name": a.name,
