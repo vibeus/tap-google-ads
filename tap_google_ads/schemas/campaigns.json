@@ -117,7 +117,7 @@
         "string",
         "null"
       ],
-      "format": "date"
+      "format": "date-time"
     },
     "excluded_parent_asset_field_types": {
       "type": [
@@ -404,7 +404,7 @@
         "string",
         "null"
       ],
-      "format": "date"
+      "format": "date-time"
     },
     "status": {
       "type": [

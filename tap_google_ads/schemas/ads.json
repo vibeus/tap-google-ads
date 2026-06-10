@@ -97,90 +97,6 @@
         "null"
       ]
     },
-    "call_ad__business_name": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__call_tracked": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__conversion_action": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__conversion_reporting_state": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__country_code": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__description1": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__description2": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__disable_call_conversion": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__headline1": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__headline2": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__path1": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__path2": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__phone_number": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "call_ad__phone_number_verification_url": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
     "device_preference": {
       "type": [
         "string",
@@ -242,12 +158,6 @@
       ]
     },
     "demand_gen_multi_asset_ad__headlines": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "demand_gen_multi_asset_ad__lead_form_only": {
       "type": [
         "string",
         "null"

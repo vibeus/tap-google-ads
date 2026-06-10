@@ -44,7 +44,7 @@ class Campaigns(Base):
                 campaign.dynamic_search_ads_setting.domain_name,
                 campaign.dynamic_search_ads_setting.language_code,
                 campaign.dynamic_search_ads_setting.use_supplied_urls_only,
-                campaign.end_date,
+                campaign.end_date_time,
                 campaign.excluded_parent_asset_field_types,
                 campaign.experiment_type,
                 campaign.final_url_suffix,
@@ -76,7 +76,7 @@ class Campaigns(Base):
                 campaign.shopping_setting.campaign_priority,
                 campaign.shopping_setting.enable_local,
                 campaign.shopping_setting.merchant_id,
-                campaign.start_date,
+                campaign.start_date_time,
                 campaign.status,
                 campaign.target_cpa.cpc_bid_ceiling_micros,
                 campaign.target_cpa.cpc_bid_floor_micros,
@@ -95,7 +95,7 @@ class Campaigns(Base):
                 campaign.url_custom_parameters,
                 campaign.vanity_pharma.vanity_pharma_display_url_mode,
                 campaign.vanity_pharma.vanity_pharma_text,
-                campaign.video_brand_safety_suitability,
+                customer.video_brand_safety_suitability,
                 customer.id
             FROM campaign
         """
@@ -128,7 +128,7 @@ class Campaigns(Base):
                         "language_code": c.dynamic_search_ads_setting.language_code,
                         "use_supplied_urls_only": c.dynamic_search_ads_setting.use_supplied_urls_only,
                     },
-                    "end_date": c.end_date,
+                    "end_date": c.end_date_time,
                     "excluded_parent_asset_field_types": list(c.excluded_parent_asset_field_types),
                     "experiment_type": c.experiment_type,
                     "final_url_suffix": c.final_url_suffix,
@@ -182,7 +182,7 @@ class Campaigns(Base):
                         "enable_local": c.shopping_setting.enable_local,
                         "merchant_id": c.shopping_setting.merchant_id,
                     },
-                    "start_date": c.start_date,
+                    "start_date": c.start_date_time,
                     "status": c.status,
                     "target_cpa": {
                         "cpc_bid_ceiling_micros": c.target_cpa.cpc_bid_ceiling_micros,
@@ -217,6 +217,6 @@ class Campaigns(Base):
                         "vanity_pharma_display_url_mode": c.vanity_pharma.vanity_pharma_display_url_mode,
                         "vanity_pharma_text": c.vanity_pharma.vanity_pharma_text,
                     },
-                    "video_brand_safety_suitability": c.video_brand_safety_suitability,
+                    "video_brand_safety_suitability": row.customer.video_brand_safety_suitability,
                     "customer_id": row.customer.id,
                 }
