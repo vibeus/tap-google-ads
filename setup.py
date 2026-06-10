@@ -19,6 +19,7 @@ setup(
         "requests",
         "singer-python",
         "protobuf==6.33.6",
+        "grpcio-status==1.73.1",
     ],
     entry_points="""
     [console_scripts]
