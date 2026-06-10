@@ -17,7 +17,7 @@ setup(
     install_requires=[
         "google-ads==30.1.0",
         "requests",
-        "singer-python",
+        "singer-python==6.1.1",
     ],
     entry_points="""
     [console_scripts]
